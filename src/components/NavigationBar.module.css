@@ -1,0 +1,41 @@
+nav {
+	height: 70px;
+	background-color: #042541;
+	color: white;
+	font-size: 15px;
+	font-family: var(--ff-primary);
+	font-weight: 500;
+}
+
+.navContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.leftNav {
+	display: flex;
+	align-items: center;
+	gap: 60px;
+}
+
+.leftLinks {
+	display: flex;
+	gap: 50px;
+}
+
+.rightNav {
+	display: flex;
+}
+
+.rightLinks {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+}
+
+.leftLinks li,
+.rightLinks li {
+	cursor: pointer;
+}

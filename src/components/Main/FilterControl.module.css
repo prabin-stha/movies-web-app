@@ -1,0 +1,37 @@
+.filter {
+	display: flex;
+	width: 238px;
+	color: #3d3d52;
+	background-color: #e3e3e3;
+	border-radius: 19px;
+}
+
+.streaming,
+.onTV {
+	font-size: 18px;
+	font-weight: 500;
+	height: 33px;
+	padding: 18px 0;
+	background-color: #e3e3e3;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 19px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.streaming {
+	width: 128px;
+}
+
+.onTV {
+	width: 110px;
+}
+
+.streaming.active,
+.onTV.active {
+	background-color: #ec2227;
+	color: white;
+}

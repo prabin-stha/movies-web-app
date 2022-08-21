@@ -1,0 +1,14 @@
+.title {
+	color: #3d3d52;
+	font-weight: 500;
+	/* padding-bottom: 5px; */
+}
+
+.date {
+	color: #aaaaaa;
+}
+
+.rating {
+	display: flex;
+	gap: 3.5px;
+}
