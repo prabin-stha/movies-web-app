@@ -1,12 +1,15 @@
 import Carousel from 'react-material-ui-carousel';
+import { useNavigate } from 'react-router-dom';
 
-import CarouselItem from './Main/CarouselItem';
+import CarouselItem from './CarouselItem';
 import styles from './Header.module.css';
 
 import { Fragment } from 'react';
 import banner from '../img/banner.png';
 
 const Header: React.FC = () => {
+	const navigate = useNavigate();
+
 	let items = [];
 	for (let i = 0; i < 6; i++) {
 		items.push(<CarouselItem key={i} img={banner} />);
@@ -64,7 +67,14 @@ const Header: React.FC = () => {
 						className={styles.search}
 						type='text'
 					/>
-					<button className={styles.searchButton}>Search</button>
+					<button
+						onClick={() => {
+							navigate('/search');
+						}}
+						className={styles.searchButton}
+					>
+						Search
+					</button>
 				</div>
 			</div>
 		</Fragment>

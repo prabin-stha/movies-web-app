@@ -1,14 +1,44 @@
+import React, { useEffect, useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
+import { useSelector } from 'react-redux';
 
-import Movie from '../../model/Movie';
+import { RootState } from '../../store';
 import FilterControl from './FilterControl';
-import MovieItems from './MovieItems';
+import MotionPictureItems from './MotionPictureItems';
+
 import styles from './Popular.module.css';
 
 import arrowLeft from '../../img/caret-left.svg';
 import arrowRight from '../../img/caret-right.svg';
 
 const Popular: React.FC = () => {
+	const { popularMovies: movies, popularTvShows: tvShows } = useSelector(
+		(state: RootState) => state.movie
+	);
+	const isSetOnStreaming = useSelector(
+		(state: RootState) => state.ui.isSetOnStreaming
+	);
+
+	// Question: Type of Component
+	const [moviesMarkup, setMoviesMarkup] = useState<any>();
+	const [tvMarkup, setTvMarkup] = useState<any>();
+
+	useEffect(() => {
+		setMoviesMarkup(
+			movies.map((el, i) => {
+				return <MotionPictureItems key={i} movies={el} />;
+			})
+		);
+	}, [movies]);
+
+	useEffect(() => {
+		setTvMarkup(
+			tvShows.map((el, i) => {
+				return <MotionPictureItems key={i} movies={el} />;
+			})
+		);
+	}, [tvShows]);
+
 	return (
 		<section>
 			<div className='container'>
@@ -50,98 +80,7 @@ const Popular: React.FC = () => {
 					}
 					fullHeightHover={false}
 				>
-					<MovieItems
-						movies={[
-							new Movie(
-								15,
-								'Moonlight',
-								'Feb 23, 2022',
-								'https://samaantafoundation.org/wp-content/uploads/2019/04/moonlight-1080x675.jpg',
-								9.5
-							),
-							new Movie(
-								15,
-								'Moonlight',
-								'Feb 23, 2022',
-								'https://samaantafoundation.org/wp-content/uploads/2019/04/moonlight-1080x675.jpg',
-								9.65
-							),
-							new Movie(
-								15,
-								'Moonlight',
-								'Feb 23, 2022',
-								'https://samaantafoundation.org/wp-content/uploads/2019/04/moonlight-1080x675.jpg',
-								9.65
-							),
-							new Movie(
-								15,
-								'Moonlight',
-								'Feb 23, 2022',
-								'https://samaantafoundation.org/wp-content/uploads/2019/04/moonlight-1080x675.jpg',
-								9.65
-							),
-							new Movie(
-								15,
-								'Moonlight',
-								'Feb 23, 2022',
-								'https://samaantafoundation.org/wp-content/uploads/2019/04/moonlight-1080x675.jpg',
-								9.65
-							),
-							new Movie(
-								15,
-								'Moonlight',
-								'Feb 23, 2022',
-								'https://samaantafoundation.org/wp-content/uploads/2019/04/moonlight-1080x675.jpg',
-								9.65
-							),
-						]}
-					/>
-					<MovieItems
-						movies={[
-							new Movie(
-								15,
-								'Moonlight',
-								'Feb 23, 2022',
-								'https://samaantafoundation.org/wp-content/uploads/2019/04/moonlight-1080x675.jpg',
-								9.65
-							),
-							new Movie(
-								15,
-								'Moonlight',
-								'Feb 23, 2022',
-								'https://samaantafoundation.org/wp-content/uploads/2019/04/moonlight-1080x675.jpg',
-								9.65
-							),
-							new Movie(
-								15,
-								'Moonlight',
-								'Feb 23, 2022',
-								'https://samaantafoundation.org/wp-content/uploads/2019/04/moonlight-1080x675.jpg',
-								9.65
-							),
-							new Movie(
-								15,
-								'Moonlight',
-								'Feb 23, 2022',
-								'https://samaantafoundation.org/wp-content/uploads/2019/04/moonlight-1080x675.jpg',
-								9.65
-							),
-							new Movie(
-								15,
-								'Moonlight',
-								'Feb 23, 2022',
-								'https://samaantafoundation.org/wp-content/uploads/2019/04/moonlight-1080x675.jpg',
-								9.65
-							),
-							new Movie(
-								15,
-								'Moonlight',
-								'Feb 23, 2022',
-								'https://samaantafoundation.org/wp-content/uploads/2019/04/moonlight-1080x675.jpg',
-								9.65
-							),
-						]}
-					/>
+					{isSetOnStreaming ? moviesMarkup : tvMarkup}
 				</Carousel>
 			</div>
 		</section>

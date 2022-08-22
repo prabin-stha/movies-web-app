@@ -1,6 +1,6 @@
 import styles from './CarouselItem.module.css';
 
-const CarouselItem: React.FC<{ img: any }> = props => {
+const CarouselItem: React.FC<{ img: string }> = props => {
 	const myStyle = {
 		backgroundImage: `url(${props.img})`,
 		height: '500px',

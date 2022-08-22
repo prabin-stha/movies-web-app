@@ -1,16 +1,23 @@
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { AppDispatch, RootState } from '../../store';
+import { uiSliceActions } from '../../store/ui-slice';
 
 import styles from './FilterControl.module.css';
 
-const FilterControl: React.FC = props => {
-	const [isSetOnStreaming, setIsSetOnStreaming] = useState(true);
+// TODO: Make button disabled on loading state
+const FilterControl: React.FC = () => {
+	const dispatch: AppDispatch = useDispatch();
+	const isSetOnStreaming = useSelector(
+		(state: RootState) => state.ui.isSetOnStreaming
+	);
 
 	const streamOnClickHandler = () => {
-		setIsSetOnStreaming(true);
+		dispatch(uiSliceActions.updateIsSetOnStreaming('movie'));
 	};
 
 	const tvOnClickHandler = () => {
-		setIsSetOnStreaming(false);
+		dispatch(uiSliceActions.updateIsSetOnStreaming('tv'));
 	};
 	return (
 		<div className={styles.filter}>

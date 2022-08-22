@@ -2,8 +2,8 @@ import { Fragment } from 'react';
 
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import NavigationBar from '../components/NavigationBar';
 import Popular from '../components/Main/Popular';
+import NavigationBar from '../components/NavigationBar';
 
 const Homepage: React.FC = () => {
 	return (

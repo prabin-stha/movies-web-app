@@ -11,53 +11,8 @@
 	color: #3d3d52;
 }
 
-.filter {
-	font-size: 18px;
-	font-weight: 500;
-	display: flex;
-	width: 238px;
-	color: #3d3d52;
-	background-color: #e3e3e3;
-	border-radius: 19px;
-}
-
-.streaming,
-.onTV {
-	height: 33px;
-	padding: 18px 0;
-	background-color: #e3e3e3;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 19px;
-	border: none;
-	outline: none;
-	cursor: pointer;
-}
-
-.streaming {
-	width: 128px;
-}
-
-.onTV {
-	width: 110px;
-}
-
-.streaming.active,
-.onTV.active {
-	background-color: #ec2227;
-	color: white;
-}
-
-.movieContainer {
-	display: flex;
-	justify-content: space-between;
-	max-width: 1200px;
-	padding: 0 2rem;
-	margin: 0 auto;
-}
-
 .carousel {
 	width: 1400px;
 	margin: 0 auto;
+	height: 360px;
 }

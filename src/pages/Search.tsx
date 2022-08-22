@@ -1,5 +1,7 @@
+import SearchComponent from '../components/SearchComponent';
+
 const Search: React.FC = () => {
-	return <div>Search</div>;
+	return <SearchComponent />;
 };
 
 export default Search;

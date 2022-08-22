@@ -1,9 +1,19 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
+
 import Homepage from './pages/Homepage';
 import Search from './pages/Search';
 import SearchItem from './pages/SearchItem';
+import fetchMoviesTvShows from './store/movies-actions';
 
 function App() {
+	const dispatch: any = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchMoviesTvShows());
+	}, [dispatch]);
+
 	return (
 		<Routes>
 			<Route path='/home' element={<Homepage />} />

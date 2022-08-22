@@ -1,4 +1,4 @@
-class Movie {
+class MotionPicture {
 	id;
 	title;
 	date;
@@ -20,4 +20,4 @@ class Movie {
 	}
 }
 
-export default Movie;
+export default MotionPicture;
